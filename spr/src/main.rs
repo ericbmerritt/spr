@@ -177,9 +177,9 @@ pub async fn spr() -> Result<()> {
 
     octocrab::initialise(
         octocrab::Octocrab::builder()
-            .base_url(config.api_base_url() + "v3/")?
-            .personal_token(github_auth_token.clone())
-    )?;
+            .base_uri(config.api_base_url() + "v3/")?
+            .personal_token(github_auth_token.clone()).build()?
+    );
 
     let mut headers = header::HeaderMap::new();
     headers.insert(header::ACCEPT, "application/json".parse()?);
