@@ -44,7 +44,7 @@
           cargo = rustToolChain;
           rustc = rustToolChain;
         };
-        spr = pkgs.callPackage ./package.nix {inherit rustPlatform pkgs;};
+        spr = pkgs.callPackage ./default.nix {inherit rustPlatform pkgs;};
       in rec {
         overlayAttrs = {
           inherit (config.packages) spr;
